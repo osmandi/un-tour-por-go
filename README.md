@@ -68,4 +68,51 @@ Las funciones tienen parámetros; en Go los resultados pueden ser nombrados y ac
 
 Si las variables de retorno tienen un nombre, una sentencia "return" sin argumentos devuelve el valor actual de dichas variables.
 
+# Variables
+La sentencia **var** declara una lista de variables; como en la lista de argumentos de las funciones, el tipo se indica al final.
 
+# Variables inicializadas
+La declaración de variables permite inicializaciones, una por variable.
+
+Si se inicializa una variable, el tipo puede omitirse; la variable adoptará el tipo de valor con el que ha sido inicializada.
+
+# Declaración implicita de variables
+Dentro de una función, puede utilizarse la sentencia de asignación **:=** en lugar de la declaración **var**.
+
+(Fuera de una función, todas las declaraciones de variables comienzan con la palabra clave ***var**+ y el operando ***:=*** no está disponible).
+
+# Tipos básicos
+Los tipos básicos en Go son:
+```
+bool
+
+string
+
+int  int8  int16  int32  int64
+uint uint8 unit16 uint32 uint64 uintprt //solo números positivos
+
+byte // alias para uint8
+    // representa un punto Unicode
+
+float32 float64 // Decimales
+
+complex64 complex128 // Números complejos
+```
+
+# Constantes
+Las constantes se declaran como las variables, pero con la palabra ***const***.
+
+Las constantes pueden ser cadenas, booleanas o numéricas.
+
+# Constantes numéricas
+Las constantes numéricas son valores de alta precisión.
+
+Una constante sin un tipo definido tiene el tipo necesitado según el contexto en el que se declara.
+
+Intenta también imprimir el valor needInt(Big)
+
+# For
+
+Go tiene solo un operando para definir bucles, los bucles for.
+
+El bucle for básico es muy parecido al que se utiliza en C o Javam salgo que los () desaperecen, ni siquiera son opcionales y las {} son obligatoras.
