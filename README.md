@@ -116,3 +116,22 @@ Intenta también imprimir el valor needInt(Big)
 Go tiene solo un operando para definir bucles, los bucles for.
 
 El bucle for básico es muy parecido al que se utiliza en C o Javam salgo que los () desaperecen, ni siquiera son opcionales y las {} son obligatoras.
+
+# For-while
+Un bucle while de C se transforma en un bucle for en Go
+
+# For-eterno
+Si omites la condición del bucle, es un bucle infinito de manera que un bucle infinito se escribe de manera compacta.
+
+# If
+La instrucción if es similar a la sentencia en C o Java, salvo que los paréntesis () desaparecen (ni siquiera son opcionales) y las llaves {} son obligatorias.
+
+# If con instrucción inicial
+Al igual que en la sentencia for, la sentencia if puede empezar con una instrucción de inicialización que se ejecutará antes de evaluar la condición.
+
+Las variables declaradas por la instruccion de inicialización son únicamente visibles en el ámbito del if.
+
+(intenta usar v en la última sentencia return) => La variable ***v*** es indefinida, porque se define en el if
+
+# If y else
+Las variables declaradas dentro de la instrucción de inicicalización de un if son también visibles dentro de los bloques else.
