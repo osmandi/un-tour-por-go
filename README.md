@@ -135,3 +135,20 @@ Las variables declaradas por la instruccion de inicialización son únicamente v
 
 # If y else
 Las variables declaradas dentro de la instrucción de inicicalización de un if son también visibles dentro de los bloques else.
+
+# Ejercicio: Bucles y funciones
+Una forma sencila de jugar con funciones y bucles es implementar la funcionalidad de la raiz cuadrada utilizando el método Newton.
+
+En este caso el método de Newton aproxima Sqrt(x) tomando un punto inicial z y repitiendo:
+
+```
+z=z-((z^2-x)/2z)
+```
+
+Para empezar, simplemente repite el cálculo 10 veces y mira cómo de cerca estas de la solución para distintos valores (1,2,3,...).
+
+Después cambia la condición del buble para cuando el valor deje de cambiar (o solo cambie con un delta muy pequeño). Mira si esto ocurre con más  menos iteraciones. ¿Cómo estás de cerca comparando con math.Sqr?
+
+Pista: Para declarar e inicalizar un valor decimal dale un valor decimal o utiliza la conversión:
+z:=float64(0)
+z:=0.0
