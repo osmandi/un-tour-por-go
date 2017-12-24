@@ -152,3 +152,41 @@ Después cambia la condición del buble para cuando el valor deje de cambiar (o 
 Pista: Para declarar e inicalizar un valor decimal dale un valor decimal o utiliza la conversión:
 z:=float64(0)
 z:=0.0
+
+# Estructuras y tipos
+
+Una estructura (struct) es un registro de variables dentro de un mismo tipo.
+
+(Y una declaración type declara un nuevo tipo de datos)
+
+# Campos de una estructura
+
+Los campos de una estructura son accesibles mediante el operador . (punto)
+
+# Punteros
+
+Go posee punteros, pero no tiene aritmética de punteros (como C).
+
+Los campos de las estructuras pueden accederse a través de un puntero a una estructura.
+
+La indirección del puntero es transparente al programador.
+
+# Estructuras literales
+
+Una estructura literal denota una nueva instancia de la estructura que muestra los valores de sus campos.
+
+Puedes mostrar solo un subconjunto de los campos utilizando la sintaxis Name: (y el orden de los campos nombrados es irrelevante)
+
+El prefijo especial & construye un puntero al espacio donde la nueva estructura se aloja.
+
+# La función "new"
+
+La expresión new(T) aloja en memoria un valor T inicializado a 0 y retorna un puntero al mismo tiempo.
+
+```
+var t *T = new(T)
+
+o
+
+t := new(T)
+```
