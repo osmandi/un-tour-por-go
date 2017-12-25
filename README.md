@@ -190,3 +190,53 @@ o
 
 t := new(T)
 ```
+
+# Slices
+
+Un slice apunta a un array de valores y posee un tamaño fijo.
+
+[]T es un slice con elementos
+
+# Creando Slices con make
+
+Los slices son creados con la función *make*. Funciona alojando un array inicializado a 0 y retornando un slice que apunta a ese array:
+
+```
+a := make([]int, 5) // len(a)=5
+```
+ 
+Los slices tienen un tamaño y una capacidad. La capacidad de un slice es el tamaño máximo que el slice puede crecer dentro del array al que apunta.
+
+Para especificar una capacidad basta con pasar un tercer argumento a *make*:
+
+```
+b:= make([]int,0,5) //leb(b)=0, cap(b)=5
+```
+
+Los slices pueden crecer reasignándose (por encima de su capacidad):
+
+```
+b = b[:cap(b)] // len(b)=5, cap(b)=5
+b = b[1:] // len(b)=4, cap(b)=4
+```
+
+# Slices nil
+El valor por defecto de un slice es nil.
+
+Un slice nil tiene un tamaño y una longitud de 0.
+
+# Range
+La forma *range* de un bucle *for* itera sobre elementos de un slice o un map.
+
+> Son como los foreach en Java.
+
+Para descartar un return de una función, usar "_" donde corresponde el lugar de la variable.
+
+# Ejercicio: Slices
+Implementa la función Pic. Debería devolver un slice de tamaño dy, siendo cada uno de los elementos un slice de dx enteros sin signo de 8 bits. Cuando ejecutes el programa, mostrará tu dibujo, interpretando los números enteros como una escala de grises (bueno, escala de azules).
+
+La elección de la imagen es de tu elección. Algunas funciones interesantes pueden ser x^y, (x+y)/2, x*y-
+
+(Necesitas usar un bucle para reservar memoria para cada []uint8 dentro de la matriz [][]uint8)
+
+(Usa uint8(intValue) para convertir entre tipos.)
