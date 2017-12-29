@@ -240,3 +240,15 @@ La elección de la imagen es de tu elección. Algunas funciones interesantes pue
 (Necesitas usar un bucle para reservar memoria para cada []uint8 dentro de la matriz [][]uint8)
 
 (Usa uint8(intValue) para convertir entre tipos.)
+
+
+# Maps
+Un map relaciona claves y valores.
+
+Los Maps debe crearse con la función *make* (nunca con *new*) antes de su uso; el map *nil* está vacío y no puede ser asignado.
+
+# Maps literales
+Los map literales son como las estructuras literales, pero las claves son obligatorias
+
+> Se utiliza de la misma manera que los slices para comprobar si un valor existe, en caso de que sí se obtiene un valor y el ok.
+
