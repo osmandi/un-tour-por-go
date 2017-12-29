@@ -252,3 +252,8 @@ Los map literales son como las estructuras literales, pero las claves son obliga
 
 > Se utiliza de la misma manera que los slices para comprobar si un valor existe, en caso de que sí se obtiene un valor y el ok.
 
+# Ejercicio Maps
+
+Implementa *ContadorPalabras*. Debería devolver un map con el número de veces que una "palabra" aparece en la cadena *s*. La función *wc.Test* ejecuta un caso de prueba ejecutando la función implementada e imprime éxito o fallo.
+
+Puedes encontrar ayuda en [strings.Fields](http://golang.org/pkg/strings/#Fields)
