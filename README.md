@@ -257,3 +257,19 @@ Los map literales son como las estructuras literales, pero las claves son obliga
 Implementa *ContadorPalabras*. Debería devolver un map con el número de veces que una "palabra" aparece en la cadena *s*. La función *wc.Test* ejecuta un caso de prueba ejecutando la función implementada e imprime éxito o fallo.
 
 Puedes encontrar ayuda en [strings.Fields](http://golang.org/pkg/strings/#Fields)
+
+# Funciones con variables
+
+Las funciones también son valores
+
+# Funciones son clausuras
+
+Y las funciones son clausuras completas.
+
+La función *adder* retorna una clausura (o función anónima). Cada clausura está vinculada a su variable *sum* correspondiente.
+
+# Ejercicio: La calusura de Fibonacci
+
+Vamos a divertirnos un poco con las funciones.
+
+Implementa una función de fibonacci que devuelva una función (o clausura) que devuelva los sucesivos números de fibonacci.
