@@ -24,7 +24,9 @@ func raizCubica(x float64) (float64, int) {
 }
 
 func main() {
-	valor := 64.0
+	var valor float64
+	fmt.Println("Ingresa un valor para obtener la raíz cuadrada")
+	fmt.Scanf("%f", &valor)
 	resultado, corridas := raizCubica(valor)
 	fmt.Printf("Resultado por método newton: %0.2f en %d corridas", resultado, corridas)
 }
