@@ -273,3 +273,29 @@ La función *adder* retorna una clausura (o función anónima). Cada clausura es
 Vamos a divertirnos un poco con las funciones.
 
 Implementa una función de fibonacci que devuelva una función (o clausura) que devuelva los sucesivos números de fibonacci.
+
+# Switch
+
+Probablemente ya sabes cómo iba a ser la cláusula *switch*.
+
+El cuerpo de un caso sale automáticamente de la cláusula *switch*, a menos que termina con una sentencia *fallthrough*, que provocaría quesiguiera ejecutando el siguiente caso contemplado.
+
+
+> Se recomienda esta cláusula para esos casos donde necesitas usar más de dos sentencias if.
+
+# Orden de evaluación de un switch
+
+Los casos de un *Switch* evalúan los casos de arriba a abajo, parando cuando se encuentra un caso satisfactorio.
+
+# Switch sin condición
+Un *switch* sin condición es lo mismo que *switch true*.
+
+Esta construcción puede ser una manera clara de escribir cadenas largas if-then-else.
+
+# Ejercicio avanzado: Raíces cúbicas
+
+Veamos cuál es el soporte de Go para números complejos mediante los tipos complex64 y complex128. Para raíces cuadradas el método de Newton se basa en repeticiones.
+
+z = (z)-((z^3-x)/3z^2)
+
+Busca la raiz cúbica de 2, para asegurarte que el algoritmo funciona. Existe una función Pow en el paquete match/cmplx.
