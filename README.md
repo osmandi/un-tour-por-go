@@ -299,3 +299,15 @@ Veamos cuál es el soporte de Go para números complejos mediante los tipos comp
 z = (z)-((z^3-x)/3z^2)
 
 Busca la raiz cúbica de 2, para asegurarte que el algoritmo funciona. Existe una función Pow en el paquete match/cmplx.
+
+# Métodos
+
+Go no tiene clases. De todas formas, puedes definir métodos para tipos struct.
+
+El receptor del método aparece en su propia lista de argumentos entre la palabra reservada *func* y el nombre del método.
+
+# Métodos (continuacion)
+
+De hecho, puedes definir un método para cualquier tipo que definas en tu paquete, no solamente estructuras.
+
+No puedes definir un método de un tipo de otro paquete o de un tipo básico.
