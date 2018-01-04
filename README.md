@@ -335,3 +335,29 @@ El método *Scale* no tiene efecto cuando v es un vértice "Vertex". Scale cambi
 Una interfaz es un tipo de datos definido como un conjunto de métodos.
 
 Un tipo interface puede contener cualquier tipo que implemente esos métodos.
+
+# Las interfaces se implementan implícitamente
+
+Un tipo implementa una interfaz simplemente implementando los métodos.
+
+*No hay declaración explícita*
+
+Las interfaces implícitas desacoplan la implementación de paquetes entre los paquetes que definen las interfaces: Ninguno depende de otro.
+
+También favorece la definición de interfaces precisas, porque no tienes que encontrar todas las implementaciones y etiquetarlas con el nuevo nombre de la interfaz.
+
+El paquete io define Reader y Writer; tú no tienes que hacerlo.
+
+Es decir, los paquetes internos de Go que utilicemos para crear interfaces no necesitamos declararlos.
+
+# Errores
+
+Un error es cualquier cosa que se defina a sí mismo como una cadena de error. La idea está en la interfaz predefinida *error*, con su único método, *Error*, que devuelve una cadena de caracteres:
+
+```
+type error interface{
+    Error() string
+}
+```
+
+Las funciones de impresión del paquete *fmt* sabe cómo llamar al método cuando se le pide imprimir un error.
