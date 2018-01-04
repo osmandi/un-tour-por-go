@@ -311,3 +311,27 @@ El receptor del método aparece en su propia lista de argumentos entre la palabr
 De hecho, puedes definir un método para cualquier tipo que definas en tu paquete, no solamente estructuras.
 
 No puedes definir un método de un tipo de otro paquete o de un tipo básico.
+
+# Métodos con punteros a receptores
+
+Los métodos pueden asociarse con un tipo o un puntero a un tipo declarado.
+
+Acabamos de ver dos métodos *Abs*. Uno para el puntero a un vértice "Vertex" y otro para el tipo MyFloat.
+
+Hay dos razones para usar un receptor de tipo puntero:
+
+- Primero, para evitar copiar el valor en cada llamada al método (más eficiente si el tipo usado es una estructura grande). 
+
+- Segundo, de tal forma que el método pueda modificar el valor a la que apunta el receptor.
+
+Intent cambiar las declaraciones de los métodos *Abs* y *Scale* para usar Vertex como el receptor, en lugar de Vertex(con asterisco).
+
+El método *Scale* no tiene efecto cuando v es un vértice "Vertex". Scale cambia *v*. Cuando "v" es un tipo (no un puntero) el método ve una copia del vértice "Vertex" y no puede mutar el valor original.
+
+*Abs* funciona de cualquier forma. Solo lee v. No importa si está leyendo el valor original (a través del puntero) o una copia del valor.
+
+# Interfaces
+
+Una interfaz es un tipo de datos definido como un conjunto de métodos.
+
+Un tipo interface puede contener cualquier tipo que implemente esos métodos.
