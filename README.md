@@ -361,3 +361,129 @@ type error interface{
 ```
 
 Las funciones de impresión del paquete *fmt* sabe cómo llamar al método cuando se le pide imprimir un error.
+
+
+# Servidores Web
+
+El paquete http sirve peticiones HTTP usando cualquier valor que implemente http.Handler
+```
+package http
+
+type Handler interface{
+    ServeHTTP(
+        w ResponseWritter, r *Request)
+
+}
+```
+
+En este ejemplo, el tipo *Hello* implementa http.Handler.
+
+Visita localhost:4000 para ver la bienvenida.
+
+Nota: Este ejemplo solo se puede ejecutar a través del tour web local. Para intentar implementar servidores web puedes instalar Go.
+
+# Imágenes
+
+El paquete image define la interfaz image:
+
+```
+package image
+
+type Image interface{
+    ColorModel() coor.Model
+    Bounds() Rectangle
+    At(x, y int) color.Color
+}
+```
+
+Mira [la documentación](http://golang.org/pkg/image/#Image) para más detalles.
+
+color.Color y color.Model también son interfaces, pero las ignoraremos usando las implementaciones predefinidas image.RGBA y image.RGBAModel.
+
+# Gorutinas
+Una goroutina es un hilo lijero manejado por el runtime de Go.
+
+```
+go f(x,y,z)
+```
+
+Comienza una nueva gorutina ejecutando
+```
+f(x,y,z)
+```
+
+La evaluación de f,x,y,z ocurre en la gorutina actual y la ejecución de f sucede en una nueva gorutina.
+
+Las gorutinas ejecutan dentro del mismo espacio de direcciones, así que el acceeso a memoria compartida debe ser sincronizado. El paquete sync provee de llamadas útiles, aunque no las necesitarás demasiado ya que Go provee otro tipo de primitivas. (Mira la siguiente transparencia).
+
+# Canales
+
+Los canales son un tipo de datos a través de los cuales puedes enviar o recibir valores con el operador <-
+
+```
+ch <- v // Envía v al canal ch
+v := <- ch // Recibe del canal ch y asigna el valor a v.
+```
+
+(Los datos fluyen en la dirección de la "flecha")
+
+De la misma forma que los maps y slices, los canales deben crearse antes de usarlos:
+
+```
+ch := make (chah int)
+```
+
+Por defecto, los envíos y recepciones se bloquean hasta que el otro extremo está listo. Esto permite que las gorutinas se sincronicen sin cerrojos explícitos o variables condicionales.
+
+# Canales con buffer
+
+Los canales pueden tener un *buffer*. Se puede indicar el tamaño del buffer pasando un segundo argumento a *make* para inicializar un canal con buffer de recepción:
+
+```
+ch := male (chan int, 100)
+```
+
+Los envíos a un canal con buffer se bloquean solo si el buffer está lleno. Las recepciones se bloquean si el buffer está vacío.
+
+Modifica el ejemplo para llenar el buffer y observa qué ocurre.
+
+Un buffer es un espacio de memoria límite que tendrá el canal para guardar los valores, cada recepción como un fmt.Println() elimina el valor del canal.
+
+# Range y close
+
+Un hilo que envía datos puede cerrar un canal para indicar que ya no se van a envinar más datos. Los receptores pueden comprobar si un canal ha sido cerrado asignando un segundo parámetro en la expresión de recepción:
+
+```
+v, ok := <- ch
+```
+
+*ok* es false si no hay más valores que recibir y el canal está cerrado.
+
+El bucle `for := range c` recibe los valores de un canal de forma repetida hasta que éste es cerrado.
+
+Nota: Solo el hilo que envía datos debería cerrar un canal, nunca el receptor. Los envíos a un canal cerrado generarán una excepción.
+
+Otra nota: Los canales no son como ficheros; normalmente no necesitas cerrarlos. Cerrar un canal solo es necesario cuando el receptor debe ser avisado que no va a recibir más datos.
+
+# Select
+
+La cláusula *select* permite a una gorutina esperar diversas operaciones de comunicación.
+
+Un *select* se bloquea hasta que uno de sus casos puede ser ejecutado, ejecutando el caso que satisfecho su condición. Elige uno al azar si hay varios listos.
+
+# Select por defecto
+
+El caso *default* en una cláusula *select* ejecuta si no hay otro caso listo.
+
+Utiliza un caso *default* para intentar enviar o recibir de forma no bloqueante:
+
+```
+select{
+case i := <- c:
+    //use i
+default:
+    // reciving from c would block
+}
+```
+
+Nota: Este ejemplo no ejecutará en la versión web porque el entorno posoee una sandbox que no tiene el concepto de tiempo.
